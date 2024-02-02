@@ -1,0 +1,144 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+		<TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+		<RootNamespace>Mail</RootNamespace>
+		<ApplicationManifest>app.manifest</ApplicationManifest>
+		<Platforms>x86;x64;ARM64</Platforms>
+		<RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
+		<PublishProfile>win-$(Platform).pubxml</PublishProfile>
+		<UseWinUI>true</UseWinUI>
+		<EnableMsixTooling>false</EnableMsixTooling>
+		<Nullable>enable</Nullable>
+		<AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+		<UseRidGraph>true</UseRidGraph>
+		<ApplicationIcon>Assets\ic_fluent_mail_24_filled_blue.ico</ApplicationIcon>
+		<FileVersion>1.1.1.0</FileVersion>
+		<AssemblyVersion>1.1.1.0</AssemblyVersion>
+		<NeutralLanguage>en-US</NeutralLanguage>
+		<Company>$(Authors)</Company>
+		<Authors>jjb</Authors>
+		<Title>Mail</Title>
+		<Description>An easy to use app for emailing.</Description>
+		<Copyright>Copyright © 2024 jjb</Copyright>
+
+		<WindowsAppSDKBootstrapAutoInitializeOptions_OnNoMatch_ShowUI>true</WindowsAppSDKBootstrapAutoInitializeOptions_OnNoMatch_ShowUI>
+		<WindowsPackagedType>None</WindowsPackagedType>
+		<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+		<PublishTrimmed>true</PublishTrimmed>
+	</PropertyGroup>
+	<ItemGroup>
+	  <Content Remove="Assets\emailServerCache.xml" />
+	  <Content Remove="Assets\Square44x44Logo.altform-lightunplated_targetsize-16.png" />
+	  <Content Remove="Assets\Square44x44Logo.altform-lightunplated_targetsize-24.png" />
+	  <Content Remove="Assets\Square44x44Logo.altform-lightunplated_targetsize-256.png" />
+	  <Content Remove="Assets\Square44x44Logo.altform-lightunplated_targetsize-32.png" />
+	  <Content Remove="Assets\Square44x44Logo.altform-lightunplated_targetsize-48.png" />
+	  <Content Remove="Assets\Square44x44Logo.altform-unplated_targetsize-16.png" />
+	  <Content Remove="Assets\Square44x44Logo.altform-unplated_targetsize-24.png" />
+	  <Content Remove="Assets\Square44x44Logo.altform-unplated_targetsize-256.png" />
+	  <Content Remove="Assets\Square44x44Logo.altform-unplated_targetsize-32.png" />
+	  <Content Remove="Assets\Square44x44Logo.altform-unplated_targetsize-48.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="Assets\LargeTile.scale-100.png" />
+	  <None Remove="Assets\LargeTile.scale-125.png" />
+	  <None Remove="Assets\LargeTile.scale-150.png" />
+	  <None Remove="Assets\LargeTile.scale-200.png" />
+	  <None Remove="Assets\LargeTile.scale-400.png" />
+	  <None Remove="Assets\SmallTile.scale-100.png" />
+	  <None Remove="Assets\SmallTile.scale-125.png" />
+	  <None Remove="Assets\SmallTile.scale-150.png" />
+	  <None Remove="Assets\SmallTile.scale-200.png" />
+	  <None Remove="Assets\SmallTile.scale-400.png" />
+	  <None Remove="Assets\SplashScreen.scale-100.png" />
+	  <None Remove="Assets\SplashScreen.scale-125.png" />
+	  <None Remove="Assets\SplashScreen.scale-150.png" />
+	  <None Remove="Assets\SplashScreen.scale-200.png" />
+	  <None Remove="Assets\SplashScreen.scale-400.png" />
+	  <None Remove="Assets\Square150x150Logo.scale-100.png" />
+	  <None Remove="Assets\Square150x150Logo.scale-125.png" />
+	  <None Remove="Assets\Square150x150Logo.scale-150.png" />
+	  <None Remove="Assets\Square150x150Logo.scale-200.png" />
+	  <None Remove="Assets\Square150x150Logo.scale-400.png" />
+	  <None Remove="Assets\Square44x44Logo.scale-100.png" />
+	  <None Remove="Assets\Square44x44Logo.scale-125.png" />
+	  <None Remove="Assets\Square44x44Logo.scale-150.png" />
+	  <None Remove="Assets\Square44x44Logo.scale-200.png" />
+	  <None Remove="Assets\Square44x44Logo.scale-400.png" />
+	  <None Remove="Assets\Square44x44Logo.targetsize-16.png" />
+	  <None Remove="Assets\Square44x44Logo.targetsize-16_altform-lightunplated.png" />
+	  <None Remove="Assets\Square44x44Logo.targetsize-16_altform-unplated.png" />
+	  <None Remove="Assets\Square44x44Logo.targetsize-24.png" />
+	  <None Remove="Assets\Square44x44Logo.targetsize-24_altform-lightunplated.png" />
+	  <None Remove="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+	  <None Remove="Assets\Square44x44Logo.targetsize-256.png" />
+	  <None Remove="Assets\Square44x44Logo.targetsize-256_altform-lightunplated.png" />
+	  <None Remove="Assets\Square44x44Logo.targetsize-256_altform-unplated.png" />
+	  <None Remove="Assets\Square44x44Logo.targetsize-32.png" />
+	  <None Remove="Assets\Square44x44Logo.targetsize-32_altform-unplated.png" />
+	  <None Remove="Assets\Square44x44Logo.targetsize-48.png" />
+	  <None Remove="Assets\Square44x44Logo.targetsize-48_altform-unplated.png" />
+	  <None Remove="Assets\StoreLogo.scale-100.png" />
+	  <None Remove="Assets\StoreLogo.scale-125.png" />
+	  <None Remove="Assets\StoreLogo.scale-150.png" />
+	  <None Remove="Assets\StoreLogo.scale-200.png" />
+	  <None Remove="Assets\StoreLogo.scale-400.png" />
+	  <None Remove="Assets\Wide310x150Logo.scale-100.png" />
+	  <None Remove="Assets\Wide310x150Logo.scale-125.png" />
+	  <None Remove="Assets\Wide310x150Logo.scale-150.png" />
+	  <None Remove="Assets\Wide310x150Logo.scale-200.png" />
+	  <None Remove="Assets\Wide310x150Logo.scale-400.png" />
+	  <None Remove="Views\AccountsPage.xaml" />
+	  <None Remove="Views\ContactsPage.xaml" />
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Include="Resources\emailServerCache.xml" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.4.230822000" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.756" />
+    <Manifest Include="$(ApplicationManifest)" />
+  </ItemGroup>
+
+  <!-- 
+    Defining the "Msix" ProjectCapability here allows the Single-project MSIX Packaging
+    Tools extension to be activated for this project even if the Windows App SDK Nuget
+    package has not yet been restored.
+  -->
+  <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+    <ProjectCapability Include="Msix" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\ContactsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\AccountsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\SettingsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\SendPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <!-- 
+    Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution 
+    Explorer "Package and Publish" context menu entry to be enabled for this project even if 
+    the Windows App SDK Nuget package has not yet been restored.
+  -->
+  <PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+    <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
+  </PropertyGroup>
+</Project>

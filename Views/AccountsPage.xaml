@@ -1,0 +1,126 @@
+﻿<Page
+    x:Class="Mail.Views.AccountsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Mail.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="using:Mail.ViewModels"
+    xmlns:model="using:Mail.Model"
+    d:DataContext="{d:DesignInstance Type=viewmodels:AccountsViewModel}"
+    mc:Ignorable="d">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 0">
+            <SymbolIcon Symbol="Account" Margin="5"/>
+            <TextBlock Text="Accounts" Margin="5" Style="{ThemeResource TitleTextBlockStyle}"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1" Margin="0, 10, 0, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="240"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <ListView Grid.Column="0" Margin="0, 0, 5, 0" ItemsSource="{x:Bind ViewModel.Accounts}" SelectedItem="{x:Bind ViewModel.SelectedItem, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Account">
+                        <TextBlock Text="{x:Bind Path=Name}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Border Grid.Column="0" BorderThickness="0, 0, 1, 0" BorderBrush="{StaticResource SystemAccentColor}"></Border>
+
+            <Grid Grid.Column="1" Margin="5, 0, 0, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBox Grid.Row="0" PlaceholderText="Enter a name" Margin="5, 0, 0, 0" Text="{x:Bind ViewModel.Name, Mode=TwoWay}" IsEnabled="{x:Bind ViewModel.ControlsAreEnabled, Mode=OneWay}">
+                    <TextBox.Header>
+                        Name
+                    </TextBox.Header>
+                </TextBox>
+
+                <TextBox Grid.Row="1" PlaceholderText="Enter your e-mail address" Margin="5, 10, 0, 0" Text="{x:Bind ViewModel.EmailAddress, Mode=TwoWay}" IsEnabled="{x:Bind ViewModel.ControlsAreEnabled, Mode=OneWay}">
+                    <TextBox.Header>
+                        E-Mail
+                    </TextBox.Header>
+                </TextBox>
+
+                <PasswordBox Grid.Row="2" PlaceholderText="Enter your password" Margin="5, 10, 0, 0" PasswordChar="*" Password="{x:Bind ViewModel.Password, Mode=TwoWay}" IsEnabled="{x:Bind ViewModel.ControlsAreEnabled, Mode=OneWay}">
+                    <PasswordBox.Header>
+                        Password
+                    </PasswordBox.Header>
+                </PasswordBox>
+
+                <TextBox Grid.Row="3" PlaceholderText="Enter the smtp server address" Margin="5, 10, 0, 0" Text="{x:Bind ViewModel.Smtp, Mode=TwoWay}" IsEnabled="{x:Bind ViewModel.ControlsAreEnabled, Mode=OneWay}">
+                    <TextBox.Header>
+                        SMTP
+                    </TextBox.Header>
+                </TextBox>
+
+                <NumberBox Grid.Row="4" Margin="5, 10, 0, 0" Text="{x:Bind ViewModel.Port, Mode=TwoWay}" IsEnabled="{x:Bind ViewModel.ControlsAreEnabled, Mode=OneWay}" Minimum="0" Maximum="65535">
+                    <NumberBox.Header>
+                        Port
+                    </NumberBox.Header>
+                </NumberBox>
+
+                <InfoBar 
+                    Grid.Row="5"
+                    Margin="5, 10, 0, 0"
+                    IsClosable="False"
+                    IsOpen="{x:Bind ViewModel.ControlsAreEnabled, Mode=OneWay}"
+                    Title="Port Configuration"
+                    Message="You can set port to 0 for auto recognition.">
+                </InfoBar>
+
+                <CheckBox Grid.Row="6" Margin="5, 10, 0, 0" IsChecked="{x:Bind ViewModel.EnableSSL, Mode=TwoWay}" IsEnabled="{x:Bind ViewModel.ControlsAreEnabled, Mode=OneWay}">
+                    Enable SSL
+                </CheckBox>
+
+                <InfoBar 
+                    Margin="0, 10, 0, 0"
+                    Grid.Row="7"
+                    IsOpen="{x:Bind ViewModel.IsGmailInfoBarOpen, Mode=OneWay}"
+                    IsClosable="False"
+                    Severity="Warning"
+                    Title="Using Gmail with Mail.">
+                    <InfoBar.Message>Trouble connecting Gmail to the Mail app? Google's security measures might be the cause. 
+                        You should activate Two-Step Verification (2SV) for a secure connection, especially for Google Workspace or gmail.com accounts and generate then an application-specific password.
+                        Otherwise you can enable access for less secure apps in Gmail.
+                    </InfoBar.Message>
+                    <InfoBar.ActionButton>
+                        <HyperlinkButton Content="Learn more" NavigateUri="https://support.google.com/a/answer/6260879" />
+                    </InfoBar.ActionButton>
+                </InfoBar>
+
+            </Grid>
+
+            <Button Grid.Row="2" Style="{StaticResource AccentButtonStyle}" Command="{x:Bind ViewModel.AddCommand, Mode=OneWay}" Margin="0, 10, 0, 0">Add</Button>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1" Margin="0, 10, 0, 0">
+                <Button Command="{x:Bind ViewModel.SaveCommand, Mode=OneWay}">Save</Button>
+                <Button Margin="5, 0, 0, 0" IsEnabled="{x:Bind ViewModel.ControlsAreEnabled, Mode=TwoWay}" Command="{x:Bind ViewModel.DeleteCommand, Mode=OneWay}">Delete</Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

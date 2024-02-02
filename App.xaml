@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application
+    x:Class="Mail.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Mail">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+                <!-- Other merged dictionaries -->
+            </ResourceDictionary.MergedDictionaries>
+            <!-- Other app resources -->
+            <x:String x:Key="AppNameTitle">Mail</x:String>
+            <x:String x:Key="AppVersion">1.0.0.0</x:String>
+            <Thickness x:Key="NavigationViewContentMargin">0,48,0,0</Thickness>
+            <StaticResource x:Key="WindowCaptionBackground" ResourceKey="SystemControlTransparentBrush" />
+            <StaticResource x:Key="WindowCaptionBackgroundDisabled" ResourceKey="SystemControlTransparentBrush" />
+            <StaticResource x:Key="WindowCaptionForeground" ResourceKey="SystemControlForegroundBaseHighBrush" />
+            <StaticResource x:Key="WindowCaptionForegroundDisabled" ResourceKey="SystemControlDisabledBaseMediumLowBrush" />
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
